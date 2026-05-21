@@ -50,6 +50,15 @@ Se o tipo não estiver claro, perguntar:
 
 ## Estilo visual base
 
+> **⚠️ M|P V2 (padrão atual aprovado pelo usuário):** Antes de criar qualquer peça pra M|P,
+> ler a feedback memory `feedback_estetica_carrossel` — define o padrão **foto editorial + overlay azul-escuro
+> + pills amarelas + slide creme + CTA amarelo** que SUBSTITUI o estilo "preto puro tipográfico".
+> Referência viva: peças aprovadas em `marketing/conteudo/novidades-2026-05-20/01-claude-small-business/`
+> e `.../03-whatsapp-2-68/`. Quando criar carrossel pra M|P, replicar essa estrutura visual.
+> Os "Estilo visual base" abaixo são fallback genérico — só usar se o cliente NÃO for M|P.
+
+---
+
 O MazyOS tem um estilo próprio — editorial, calmo, premium. Sem clip-art, sem emoji decorativo, sem gradiente arco-íris, sem template genérico de IA. `identidade/design-guide.md` sobrescreve esses padrões; quando o design-guide for vago ou estiver em branco, usar o que tá aqui (não parar pra pedir `/instalar` — o `/carrossel` funciona com defaults bons).
 
 ### Tipografia padrão
