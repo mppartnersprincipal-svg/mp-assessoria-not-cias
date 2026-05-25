@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   M|P Assessoria — Paleta v2 (memória feedback-estetica-carrossel)
+   Base azul-escuro + amarelo + creme + Plus Jakarta Sans
+   ========================================================================= */
+
+:root {
+  /* Cores base */
+  --mp-bg:           #0B1E3A;
+  --mp-bg-deep:      #08152A;
+  --mp-bg-elevated:  #122A4D;
+  --mp-accent:       #FFD700;
+  --mp-accent-deep:  #E6BC00;
+  --mp-cream:        #F4EBD0;
+  --mp-text:         #FFFFFF;
+  --mp-text-muted:   #D3D8E0;
+  --mp-text-dim:     #8B95A8;
+  --mp-success:      #2BD17B;
+  --mp-error:        #FF6B6B;
+  --mp-border:       rgba(255, 215, 0, 0.18);
+  --mp-border-soft:  rgba(255, 255, 255, 0.08);
+
+  /* Camadas / overlays */
+  --mp-overlay-photo:
+    linear-gradient(
+      180deg,
+      rgba(11, 30, 58, 0.55) 0%,
+      rgba(11, 30, 58, 0.82) 50%,
+      rgba(8, 20, 40, 0.95) 100%
+    );
+
+  /* Geometria */
+  --mp-radius-sm:   8px;
+  --mp-radius:      14px;
+  --mp-radius-lg:   20px;
+  --mp-radius-pill: 9999px;
+
+  /* Movimento */
+  --mp-easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-mp-bg: var(--mp-bg);
+  --color-mp-bg-deep: var(--mp-bg-deep);
+  --color-mp-bg-elevated: var(--mp-bg-elevated);
+  --color-mp-accent: var(--mp-accent);
+  --color-mp-accent-deep: var(--mp-accent-deep);
+  --color-mp-cream: var(--mp-cream);
+  --color-mp-text: var(--mp-text);
+  --color-mp-text-muted: var(--mp-text-muted);
+  --color-mp-text-dim: var(--mp-text-dim);
+  --color-mp-success: var(--mp-success);
+  --color-mp-error: var(--mp-error);
+  --color-mp-border: var(--mp-border);
+  --color-mp-border-soft: var(--mp-border-soft);
+
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-sm: var(--mp-radius-sm);
+  --radius: var(--mp-radius);
+  --radius-lg: var(--mp-radius-lg);
+  --radius-pill: var(--mp-radius-pill);
+}
+
+/* Reset / base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--mp-bg);
+  color: var(--mp-text);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(255, 215, 0, 0.06), transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, rgba(36, 65, 120, 0.6), transparent 70%),
+    var(--mp-bg);
+}
+
+/* Focus visível padrão */
+:focus-visible {
+  outline: 2px solid var(--mp-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Botão sem default ugly */
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Selection */
+::selection {
+  background: var(--mp-accent);
+  color: var(--mp-bg-deep);
+}
+
+/* Scrollbar dark */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--mp-bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--mp-bg-elevated); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #1B3866; }
+
+/* Reduced motion: respeita preferência */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.12s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Utilitário: shake horizontal em erros */
+@keyframes mp-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+.mp-shake {
+  animation: mp-shake 380ms var(--mp-easing);
+}
